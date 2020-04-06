@@ -75,10 +75,10 @@
 |------|-------------|
 | cloudwatch\_metric\_alarm\_arn | The ARN of the Cloudwatch metric alarm. |
 | cloudwatch\_metric\_alarm\_id | The ID of the Cloudwatch metric alarm. |
+| lambda\_arn | The ARN of the Lambda function |
+| lambda\_ids | The name of the VPC Lambda functions |
 | log\_group\_arn | The Amazon Resource Name (ARN) specifying the log group. |
 | role\_arn | The ARN of the IAM role created for the Lambda function |
 | role\_name | The name of the IAM role created for the Lambda function |
 | security\_group\_id | Security Group ID |
-| vpc\_lambda\_arn | The ARN of the Lambda function |
-| vpc\_lambda\_ids | The name of the VPC Lambda functions |
 
