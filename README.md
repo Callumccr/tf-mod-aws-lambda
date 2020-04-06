@@ -48,7 +48,12 @@
 ## Module description
 
 
-This module creates an aws lambda function
+This module creates an aws lambda function.
+
+Additionally, this module also creates the following:
+- A cloudwatch log group
+- A security group if none is passed to the VPC enabled lambda function
+- A default cloudwatch alarm
 
 
 
