@@ -3,7 +3,7 @@ module "label" {
   namespace          = var.namespace
   environment        = var.environment
   name               = var.name
-  attributes         = concat(var.attributes, [var.function_name], ["lambda"])
+  attributes         = concat(var.attributes, [var.function_name], ["function"])
   delimiter          = "-"
   additional_tag_map = {} /* Additional attributes (e.g. 1) */
   label_order        = ["environment", "namespace", "name", "attributes"]
@@ -15,7 +15,7 @@ module "sg_label" {
   environment        = var.environment
   name               = var.name
   delimiter          = "-"
-  attributes         = concat(module.label.attributes, ["sg"])
+  attributes         = concat([var.function_name], ["sg"])
   additional_tag_map = {} /* Additional attributes (e.g. 1) */
   label_order        = ["environment", "namespace", "name", "attributes"]
 }
@@ -26,7 +26,7 @@ module "role_label" {
   environment        = var.environment
   name               = var.name
   delimiter          = "-"
-  attributes         = concat(module.label.attributes, ["role"])
+  attributes         = concat([var.function_name], ["role"])
   additional_tag_map = {} /* Additional attributes (e.g. 1) */
   label_order        = ["environment", "namespace", "name", "attributes"]
 }
@@ -37,7 +37,7 @@ module "log_label" {
   environment        = var.environment
   name               = var.name
   delimiter          = "-"
-  attributes         = concat(module.label.attributes, ["log-group"])
+  attributes         = concat([var.function_name], ["log-group"])
   additional_tag_map = {} /* Additional attributes (e.g. 1) */
   label_order        = ["environment", "namespace", "name", "attributes"]
 }
@@ -49,7 +49,7 @@ module "alarm_label" {
   environment        = var.environment
   name               = var.name
   delimiter          = "-"
-  attributes         = concat(module.label.attributes, ["alarm"])
+  attributes         = concat([var.function_name], ["alarm"])
   additional_tag_map = {} /* Additional attributes (e.g. 1) */
   label_order        = ["environment", "namespace", "name", "attributes"]
 }
