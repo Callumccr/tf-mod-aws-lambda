@@ -36,13 +36,18 @@ resource "aws_lambda_function" "default" {
   }
 
   dynamic "vpc_config" {
-    for_each = var.subnet_ids == [] ? [] : var.subnet_ids
+    for_each = var.subnet_ids == [] ? [] : 1
     iterator = subnets
     content {
       security_group_ids = var.use_existing_security_groups == false ? aws_security_group.default.*.id : var.existing_security_groups
       subnet_ids         = var.subnet_ids
     }
   }
+
+  # vpc_config {
+  #   security_group_ids = var.use_existing_security_groups == false ? aws_security_group.default.*.id : var.existing_security_groups
+  #   subnet_ids         = legnth(var.subnet_ids) > 0 ? [] : var.subnet_ids
+  # }
 }
 
 
