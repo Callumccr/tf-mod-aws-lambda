@@ -133,6 +133,7 @@ variable "mode" {
 variable "subnet_ids" {
   description = "(Required) - A list of subnet IDs associated with the Lambda function."
   type        = list(string)
+  default     = []
 }
 
 
