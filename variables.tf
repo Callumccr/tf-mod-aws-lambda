@@ -47,6 +47,12 @@ variable "enabled" {
   default     = true
 }
 
+variable "vpc_enabled" {
+  description = "(Optional) Provide this to allow your function to access your VPC. Default is false"
+  type        = bool
+  default     = false
+}
+
 variable "function_name" {
   type        = string
   description = "(Required) - A unique name for your Lambda Function."
