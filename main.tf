@@ -36,7 +36,7 @@ resource "aws_lambda_function" "default" {
   }
 
   vpc_config {
-    security_group_ids = length(var.subnet_ids) > 0 ? concat[var.existing_security_groups, aws_security_group.default.*.id]
+    security_group_ids = length(var.subnet_ids) > 0 ? concat[var.existing_security_groups, aws_security_group.default.*.id] : []
     subnet_ids         = length(var.subnet_ids) > 0 ? var.subnet_ids : []
   }
 }
