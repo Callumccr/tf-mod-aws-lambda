@@ -4,12 +4,12 @@
 
 output "lambda_arn" {
   description = "The ARN of the Lambda function"
-  value       = aws_lambda_function.default.*.arn
+  value       = join("", aws_lambda_function.default.*.arn)
 }
 
 output "lambda_ids" {
   description = "The name of the VPC Lambda functions"
-  value       = aws_lambda_function.default.*.function_name
+  value       = join("", aws_lambda_function.default.*.function_name)
 }
 
 output "role_arn" {

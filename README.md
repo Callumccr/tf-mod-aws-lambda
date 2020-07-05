@@ -120,7 +120,6 @@ TO-DO
 | role | (Required) - IAM role attached to the Lambda Function. This governs both who / what can invoke your Lambda Function, as well as what resources our Lambda Function has access to. | `string` | n/a | yes |
 | runtime | (Required) - See Lambda Runtimes for valid values | `string` | n/a | yes |
 | statistic | The statistic to apply to the alarm's associated metric. Either of the following is supported: SampleCount, Average, Sum, Minimum, Maximum | `string` | n/a | yes |
-| subnet\_ids | (Required) - A list of subnet IDs associated with the Lambda function. | `list(string)` | n/a | yes |
 | threshold | The value against which the specified statistic is compared. | `number` | n/a | yes |
 | unit | The unit for the alarm's associated metric. | `string` | n/a | yes |
 | actions\_enabled | Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to false. | `bool` | `false` | no |
@@ -158,11 +157,13 @@ TO-DO
 | port | (Optional) - Allow inbound traffic to internal CIDR ranges | `list(string)` | `[]` | no |
 | publish | (Optional) - Whether to publish creation/change as new Lambda Function Version. Defaults to false. | `bool` | `false` | no |
 | retention\_in\_days | (Optional) - Lammbda Cloudwatch log group. Specifies the number of days you want to retain log events in the specified log group. | `number` | `30` | no |
+| subnet\_ids | (Required) - A list of subnet IDs associated with the Lambda function. | `list(string)` | `[]` | no |
 | tags | (Optional) - Additional tags | `map(string)` | `{}` | no |
 | target\_arn | (Required) The ARN of an SNS topic or SQS queue to notify when an invocation fails. If this option is used, the function's IAM role must be granted suitable access to write to the target object, which means allowing either the sns:Publish or sqs:SendMessage action on this ARN, depending on which service is targeted. | `list(string)` | `[]` | no |
 | timeout | (Optional) - The amount of time your Lambda Function has to run in seconds. Defaults to 3 | `number` | `3` | no |
 | treat\_missing\_data | Sets how this alarm is to handle missing data points. The following values are supported: missing, ignore, breaching and notBreaching. | `string` | `"missing"` | no |
 | use\_existing\_security\_groups | (Optional) - Flag to enable/disable creation of Security Group in the module. Set to `true` to disable Security Group creation and provide a list of existing security Group IDs in `existing_security_groups` to place the Lambda function into | `bool` | `false` | no |
+| vpc\_enabled | (Optional) Provide this to allow your function to access your VPC. Default is false | `bool` | `false` | no |
 | vpc\_id | (Optional) - VPC ID | `string` | `""` | no |
 
 ## Outputs
